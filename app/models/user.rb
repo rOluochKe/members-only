@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
   validates :username, presence: true, length: { maximum: 50 }
@@ -25,8 +27,8 @@ class User < ApplicationRecord
   end
 
   private
+
   def create_remember_token
     self.remember_token = User.digest(User.new_remember_token)
   end
-
 end
