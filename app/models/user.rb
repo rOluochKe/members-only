@@ -8,6 +8,7 @@ class User < ApplicationRecord
   before_create :create_remember_token
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  has_many :posts
 
   # Returns a random token.
   def self.new_remember_token
@@ -20,7 +21,7 @@ class User < ApplicationRecord
 
   # Forgets a user.
   def forget
-    update_attribute(:remember_digest, nil)
+    update_attribute(:remember_token, nil)
   end
 
   private
