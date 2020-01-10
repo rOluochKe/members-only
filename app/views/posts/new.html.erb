@@ -1,0 +1,12 @@
+<h1>New Post <h1>
+
+<%= form_for @Post do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :Body%>
+  <%= f.text_area :Body, class: 'form-control' %>
+
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>
