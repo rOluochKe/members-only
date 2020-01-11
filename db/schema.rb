@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_01_09_225537) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "remember_token"
-    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
   add_foreign_key "posts", "users"
