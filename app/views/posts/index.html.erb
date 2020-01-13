@@ -1,0 +1,29 @@
+
+<h1>Members Only Posts</h1>
+
+<div class= "row">
+ <div class="col-md-6 col-md-offset-3">
+    <% if logged_in? %>
+      <%= link_to "Create a Post", new_post_path %>
+    <% end %>
+
+    <% @posts.each do |post| %>
+      <h4 class="float-left"><%=post.title %></h4>  
+      <p class="clear"><%= post.body %></p>
+       <% if logged_in? %>
+        <p class="float-right">
+          Posted by:
+          <%= post.user.username %>
+        </p>
+      <% end %><hr />
+    <% end %>
+    <div class = "pull-right">
+      <% if logged_in? %>
+        <%= link_to "(#{current_user.username}) Log out", logout_path, method: "delete" %>
+      <% else %>
+          <%= link_to 'Login', login_path %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
